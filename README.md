@@ -1,2 +1,2 @@
 # Thai-GN
-Share Jesus thru Gospel audio messages!
+Share Jesus Christ thru Gospel audio messages!
