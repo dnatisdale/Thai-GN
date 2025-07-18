@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My URL Library</title>
+    <title>Thai-GN</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
 </head>
+<script src="app.js"></script>
 <body>
-    <h1>Hello World!</h1>
-    <p>This is my first PWA.</p>
+   <h1>My URL Library</h1>
+<form id="urlForm">
+  <input type="url" placeholder="https://example.com" required>
+  <button type="submit">Save</button>
+</form>
+<ul id="urlList"></ul>
 </body>
 </html>
