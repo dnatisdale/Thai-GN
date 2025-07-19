@@ -1,9 +1,31 @@
+// 👇 REPLACE YOUR EXISTING SUBMIT HANDLER WITH THIS
 document.getElementById('urlForm').addEventListener('submit', function(e) {
-  document.getElementById('urlForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  let url = e.target.querySelector('input').value.trim();
+  let url = document.getElementById('urlInput').value.trim();
   
+  // Auto-add https:// if missing protocol
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    url = 'https://' + url;
+  }
+  
+  // Validate URL (simple check)
+  if (!url.includes('.') || url.split('.').length < 2) {
+    alert("Please enter a valid URL (e.g., example.com)");
+    return;
+  }
+  
+  // Add to list and save (keep your existing code below)
+  const listItem = document.createElement('li');
+  listItem.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+  document.getElementById('urlList').appendChild(listItem);
+  e.target.reset();
+  
+  // If you have localStorage saving, keep that code here
+});
+  listItem.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+  document.getElementById('urlList').appendChild(listItem);
+  e.target.reset();
   // Auto-add https:// if missing
   if (!url.match(/^https?:\/\//)) {
     url = 'https://' + url;
