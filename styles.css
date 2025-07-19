@@ -25,4 +25,29 @@ h1 {
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-5px); }
   40%, 80% { transform: translateX(5px); }
+  
+}
+/* Add to styles.css */
+.category-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  color: white;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.qr-btn {
+  margin-left: 15px;
+  padding: 2px 10px;
+  background: #f1c40f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#qrCode {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #eee;
+  display: inline-block;
 }
