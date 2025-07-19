@@ -16,6 +16,9 @@ function saveURL(url) {
   const urls = JSON.parse(localStorage.getItem('urls') || '[]');
   urls.push(url);
   localStorage.setItem('urls', JSON.stringify(urls));
+  window.addEventListener('error', (e) => {
+  fetch('/log-error', { method: 'POST', body: e.message });
+});
 }
 
 // Load on startup
