@@ -5,21 +5,20 @@ body {
   padding: 20px;
   background: #f5f5f5;
   color: #333;
-  #urlInput:invalid {
-  border-color: #ff6b6b;
+}
+
+h1 {
+  color: #1abc9c;
+}
+
+/* URL Input Styling - Single consolidated rule */
+#urlInput:invalid {
+  border: 2px solid #ff6b6b;
+  animation: shake 0.5s;
 }
 
 #urlInput:valid {
   border-color: #1abc9c;
-}
-}
-h1 {
-  color: #1abc9c;
-
-}
-#urlInput:invalid {
-  border: 2px solid #ff6b6b;
-  animation: shake 0.5s;
 }
 
 @keyframes shake {

@@ -2,42 +2,44 @@
 <html>
 <head>
     <title>Thai-GN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
 </head>
-<form id="urlForm">
-  <input 
-    type="text" 
-    id="urlInput" 
-    placeholder="example.com"
-    pattern="^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(/\S*)?$"
-  >
-  <button type="submit">Save</button>
-</form>
-<select id="category">
-  <option value="work">Work</option>
-  <option value="personal">Personal</option>
-</select>
-<select id="category">
-  <option value="work">Work</option>
-  <option value="personal">Personal</option>
-</select>
-<div id="qrCode"></div>
-<input 
-  type="text" 
-  id="urlInput" 
-  placeholder="example.com"
-  pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$"
->
 <body>
-   <h1>My URL Library</h1>
-<form id="urlForm">
-  <input type="url" placeholder="https://example.com" required>
-  <input type="text" id="search" placeholder="Search URLs...">
-  <button type="submit">Save</button>
-</form>
-<ul id="urlList"></ul>
-<script src="app.js"></script>
+    <h1>My URL Library</h1>
+    
+    <!-- Main URL Input Form -->
+    <form id="urlForm">
+        <input 
+            type="text" 
+            id="urlInput" 
+            placeholder="example.com"
+            pattern="^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(/\S*)?$"
+        >
+        
+        <!-- Category Selector -->
+        <select id="category">
+            <option value="general">General</option>
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+        </select>
+        
+        <button type="submit">Save</button>
+    </form>
+    
+    <!-- Search Functionality -->
+    <input type="text" id="search" placeholder="Search URLs...">
+    
+    <!-- URL List Display -->
+    <ul id="urlList"></ul>
+    
+    <!-- QR Code Container -->
+    <div id="qrCode"></div>
+    
+    <!-- JavaScript -->
+    <script src="app.js"></script>
 </body>
 </html>
