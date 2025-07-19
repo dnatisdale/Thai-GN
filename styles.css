@@ -16,7 +16,7 @@ body {
 h1 {
   color: #1abc9c;
 
-}/* 👇 ADD TO BOTTOM OF YOUR CSS FILE */
+}
 #urlInput:invalid {
   border: 2px solid #ff6b6b;
   animation: shake 0.5s;
