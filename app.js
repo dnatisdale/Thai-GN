@@ -71,27 +71,6 @@ function addUrlToList(url, category) {
     generateQR(e.target.dataset.url);
   });
 }
-
-// ======================
-// QR CODE GENERATION
-// ======================
-function generateQR(url) {
-  const qrContainer = document.getElementById('qrCode');
-  qrContainer.innerHTML = '';
-  
-  // Using QRCode.js (include this library in your HTML)
-  new QRCode(qrContainer, {
-    text: url,
-    width: 150,
-    height: 150,
-    colorDark: "#1abc9c",
-    colorLight: "#ffffff",
-  });
-  
-  // Auto-hide after 30 seconds
-  setTimeout(() => qrContainer.innerHTML = '', 30000);
-}
-
 // ======================
 // CATEGORY MANAGEMENT
 // ======================
@@ -103,7 +82,56 @@ function getCategoryColor(category) {
   };
   return colors[category] || '#95a5a6';
 }
+// ======================
+// QR CODE GENERATION (UPDATED)
+// ======================
+function generateQR(url) {
+  const qrContainer = document.getElementById('qrCode');
+  
+  // Clear previous QR code
+  qrContainer.innerHTML = '';
+  
+  // Create QR code with error handling
+  try {
+    new QRCode(qrContainer, {
+      text: url,
+      width: 160,
+      height: 160,
+      colorDark: "#1abc9c",  // Teal color to match your theme
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H // Error correction level
+    });
+    
+    // Add close button
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '×';
+    closeBtn.className = 'close-qr';
+    closeBtn.addEventListener('click', () => {
+      qrContainer.innerHTML = '';
+    });
+    qrContainer.appendChild(closeBtn);
+    
+  } catch (error) {
+    console.error("QR Generation Error:", error);
+    qrContainer.innerHTML = '<p>Could not generate QR code</p>';
+  }
+}
 
+// ======================
+// UPDATED EVENT LISTENERS
+// ======================
+document.addEventListener('click', function(e) {
+  // Handle QR button clicks
+  if (e.target.classList.contains('qr-btn')) {
+    const url = e.target.dataset.url;
+    generateQR(url);
+  }
+  
+  // Close QR when clicking outside
+  if (!e.target.closest('#qrCode') && !e.target.classList.contains('qr-btn')) {
+    document.getElementById('qrCode').innerHTML = '';
+  }
+});
 // ======================
 // INITIALIZATION
 // ======================
